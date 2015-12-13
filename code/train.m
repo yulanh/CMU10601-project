@@ -3,11 +3,12 @@ function Model = train(data, labels)
     hiddenNum = 100;
     classNum = 10;
     eta = 0.1;
-    maxIter = 40;
+    maxIter = 300;
     cellSize = 4;
+    convThresh = 0.02;
     
     [XTrain, YTrain] = nn_extract_feat(data, labels, cellSize);
     
-    Model = nn_train(layerNum, hiddenNum, classNum, eta, maxIter, XTrain, YTrain);
+    Model = nn_train(layerNum, hiddenNum, classNum, eta, maxIter, convThresh, XTrain, YTrain);
     save('Model.mat', 'Model');
 end

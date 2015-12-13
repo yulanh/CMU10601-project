@@ -7,6 +7,10 @@ function [XFeat, Y] = nn_extract_feat(data, labels, cellSize)
     end
     
     
-    XFeat = double(XFeat);
+%     XFeat = double(XFeat);
+%     V = MyPCA(XFeat, 1000);
+%     XFeat = XFeat * V;
+%     XFeat = V';
+    
     Y = double(labels) + 1;
 end

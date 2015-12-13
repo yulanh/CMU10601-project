@@ -1,4 +1,4 @@
-function [Y] = classify(Model, X)
+function [Y] = classify1(Model, X)
     
     cellSize = 4;
     XTestFeat = [];

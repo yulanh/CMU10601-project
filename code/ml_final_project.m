@@ -18,17 +18,21 @@ load ../subset_CIFAR10/small_data_batch_4
 XTrain = [XTrain;data];
 YTrain = [YTrain;labels];
 
+load ../subset_CIFAR10/small_data_batch_5
+XTrain = [XTrain;data];
+YTrain = [YTrain;labels];
+
 cellSize = 4;
 
 
 %% prepare testing data
-load ../subset_CIFAR10/small_data_batch_5
-XTest = data;
-YTest = labels;
+% load ../subset_CIFAR10/small_data_batch_5
+% XTest = data;
+% YTest = labels;
 
 Model = train(XTrain, YTrain);
 nn_get_acc(Model, XTrain, YTrain)
-nn_get_acc(Model, XTest, YTest)
+% nn_get_acc(Model, XTest, YTest)
 % [XTrainFeat, YTrain] = data2feat(XTrain, YTrain, cellSize);
 % [XTestFeat, YTest] = data2feat(XTest, YTest, cellSize);
 % 
