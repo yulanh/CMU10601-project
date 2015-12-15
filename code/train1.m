@@ -1,4 +1,4 @@
-function [Model] = train(X, Y)
+function [Model1] = train1(X, Y)
     %% Extract HoG features
     cellSize = 4;
 
@@ -29,8 +29,8 @@ function [Model] = train(X, Y)
     value4 = stdev;
     value5 = V;
     
-    Model = struct(field1, value1, field2, value2, field3, value3, field4, value4, field5, value5);
-
+    Model1 = struct(field1, value1, field2, value2, field3, value3, field4, value4, field5, value5);
+    save('Model1.mat', 'Model1');
 end
 
 function [priors, classes, avg, stdev] = NaiveBayesClassifier(XTrain, YTrain)
