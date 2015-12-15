@@ -6,6 +6,10 @@ function NNet = nn_mini_batch_train(layerNum, hidNodeNum, classNum, eta, maxIter
     %%%%%%%%%%%
 %     load ../subset_CIFAR10/small_data_batch_5
 %     [XTest, YTest] = nn_extract_feat(data, labels, 4);
+%     load ../cifar-10-batches-mat/data_batch_2.mat
+%     data = data(1:1000,:);
+%     labels = labels(1:1000,:);
+%     [XTest, YTest] = nn_extract_feat(data, labels, 4);
     %%%%%%%%%%%
     
     fprintf('Layer: %d, Hidden Node: %d, Step Size: %.3f \n', layerNum, hidNodeNum, eta);
@@ -64,15 +68,21 @@ function NNet = nn_mini_batch_train(layerNum, hidNodeNum, classNum, eta, maxIter
         end
         
 %         %%%%%%%%%%%%%%%%%%%
-        acc = get_acc(NNet, XTrain,YTrain);
+%         acc = get_acc(NNet, XTrain,YTrain);
 %         acctest = get_acc(NNet, XTest,YTest);
 %         fprintf('Train Accuracy: %.4f, Test Accuracy: %.4f, Delta Weight: %.4f, %.4f\n', acc, acctest, delta_w, delta_w1);
-        fprintf('Train Accuracy: %.4f, Delta Weight: %.4f, %.4f\n', acc, delta_w, delta_w1);
+%         fprintf('Train Accuracy: %.4f, Delta Weight: %.4f, %.4f\n', acc, delta_w, delta_w1);
+%         if acctest >= 0.54
+%             break;
+%         end
 %         %%%%%%%%%%%%%%%%%%%
 
         if end_train == 1
             break;
         end
+        
+%         ii = mod(i,10);
+%         save(strcat('NNModel', num2str(ii), '.mat'),'NNet');
     end
 end
 
